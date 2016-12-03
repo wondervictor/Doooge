@@ -10,8 +10,11 @@
 
 #import <Realm.h>
 
+#import "AppSettings+HabitSettings.h"
+
 #import "DailyRoutine.h"
 #import "CustomHabit.h"
+
 
 @interface AppDatabase()
 @property RLMRealm * realm;
@@ -35,13 +38,7 @@
     return self;
 }
 #pragma mark General
-- (void)beginWriteTransaction {
-    [self.realm beginWriteTransaction];
-}
 
-- (void)commitWriteTransaction {
-    [self.realm commitWriteTransaction];
-}
 #pragma mark UpdateModel
 - (void)addDailyRoutine:(DailyRoutine *)dailyRoutine {
     [self.realm beginWriteTransaction];
@@ -89,10 +86,44 @@
     return [NSArray arrayWithArray:results];
 }
 
+- (NSArray *)allCustomHabitName {
+    NSArray * customHabits = [self allCustomHabit];
+    NSMutableArray * results = [NSMutableArray array];
+    for (CustomHabit * customHabit in customHabits) {
+        [results addObject:customHabit.ID];
+    }
+    return [NSArray arrayWithArray:results];
+}
+
 - (CustomHabit *)customHabitWithName:(NSString *)name {
     NSString * condition = [NSString stringWithFormat:@"ID = '%@'", name];
     RLMResults<CustomHabit *> * results = [CustomHabit objectsWhere:condition];
     return [results firstObject];
+}
+
+- (DailyRoutine *)dailyRoutineWithName:(NSString *)name {
+    NSString * condition = [NSString stringWithFormat:@"ID = '%@'", name];
+    RLMResults<DailyRoutine *> * results = [DailyRoutine objectsWhere:condition];
+    return [results firstObject];
+}
+
+- (void)updateDailyRoutineWithName:(NSString *)name fromUserDefaults:(NSUserDefaults *)userDefaults {
+    DailyRoutine * dailyRoutine = [self dailyRoutineWithName:name];
+    NSDictionary * dailyRoutineDictionary = [userDefaults objectForKey:name];
+    [self.realm beginWriteTransaction];
+    dailyRoutine.persistDays = [dailyRoutineDictionary[@"persist"]integerValue];
+    [self.realm commitWriteTransaction];
+    NSLog(@"Update Daily Routine From UserDefaults.");
+}
+
+- (void)updateCustomHabitWithName:(NSString *)name fromUserDefaults:(NSUserDefaults *)userDefaults {
+    CustomHabit * customHabit = [self customHabitWithName:name];
+    NSDictionary * customHabitDictionary = [[userDefaults objectForKey:@"habits"]objectForKey:name];
+    [self.realm beginWriteTransaction];
+    customHabit.persistDays = [customHabitDictionary[@"persist"]integerValue];
+    customHabit.lastClocked = customHabitDictionary[@"last"];
+    [self.realm commitWriteTransaction];
+    NSLog(@"Update Custom Habit From UserDefaults.");
 }
 
 - (void)updateLastClocked:(NSDate *)date withCustomHabit:(CustomHabit *)customHabit {
