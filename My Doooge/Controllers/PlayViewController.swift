@@ -12,8 +12,12 @@ class PlayViewController: UIViewController {
 
     // showPlay
     
+    var delegate: PresentViewControllerDelegate?
+
     @IBOutlet weak var backButton: UIButton!
     override func viewWillAppear(_ animated: Bool) {
+        AnimationEngine.shared.delegate = self
+
         backButton.isEnabled = false
         super.viewWillAppear(animated)
     }
@@ -32,6 +36,7 @@ class PlayViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: Any) {
+        delegate?.dismiss()
         self.dismiss(animated: true, completion: nil)
     }
 

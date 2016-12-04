@@ -22,11 +22,32 @@ enum DooogeAnimationType: Int {
 }
 
 
-@objc protocol AnimationEngineDelegate {
-    @objc optional func didFinshEating()
-    @objc optional func didFinishPlaying()
+protocol AnimationEngineDelegate {
+    func didFinshEating()
+    func didFinishPlaying()
+    func didFinishSleeping()
+    func didTouched()
 
 }
+
+extension AnimationEngineDelegate {
+    
+    func didTouched() {
+        print("touched")
+    }
+    func didFinshEating() {
+        print("end eating")
+    }
+    func didFinishPlaying() {
+        print("end Playing")
+    }
+    func didFinishSleeping(){
+        print("end Sleeping")
+    }
+
+    
+}
+
 
 class AnimationEngine: NSObject {
 
@@ -74,6 +95,7 @@ class AnimationEngine: NSObject {
         timer?.invalidate()
         DispatchQueue.cancelPreviousPerformRequests(withTarget: self)
 
+        
         let animationArray = Movement.move.type(mode)
         state = mode
         animationView.play(animationArray, false)
@@ -86,18 +108,21 @@ class AnimationEngine: NSObject {
             self.perform(#selector(AnimationEngine.endEating), with: nil, afterDelay: Double(animationArray.count) * 0.3)
         } else if mode == .play {
             self.perform(#selector(AnimationEngine.endPlaying), with: nil, afterDelay: Double(animationArray.count ) * 0.3)
+        } else if mode == .touch {
+            self.perform(#selector(AnimationEngine.endPlaying), with: nil, afterDelay: Double(animationArray.count ) * 0.3)
+            
         }
     }
     
     
     @objc private func endEating() {
         
-        delegate?.didFinshEating!()
+        delegate?.didFinshEating()
         defaultAnimation()
     }
     
     @objc private func endPlaying() {
-        delegate?.didFinishPlaying!()
+        delegate?.didFinishPlaying()
         defaultAnimation()
     }
     
@@ -177,7 +202,8 @@ class AnimationEngine: NSObject {
 
 extension AnimationEngine: AnimationViewDelegete {
     func touchedImage() {
-        print("Touched")
+        delegate?.didTouched()
+        self.switchAnimation(.touch)
     }
 
     func didStopAnimating() {

@@ -213,6 +213,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="200"/>
                     <connections>
+                        <outlet property="backImageView" destination="teb-Zq-nmz" id="zMX-Wz-wDh"/>
                         <outlet property="messageView" destination="EKw-Us-Zly" id="RHM-tz-3as"/>
                         <outlet property="verticalConstraint" destination="fQJ-6k-frV" id="ht3-Au-Arj"/>
                         <segue destination="vZ5-Gh-Ycd" kind="show" identifier="showFood" id="u5I-d6-DnZ"/>

@@ -117,6 +117,8 @@ extension UIView {
 class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerTransitioningDelegate {
     
     
+    @IBOutlet weak var backImageView: UIImageView!
+    
     let animation = AnimationEngine.shared
     
     var animationView: AnimationView!
@@ -193,7 +195,6 @@ class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerT
     override func viewDidLoad() {
         super.viewDidLoad()
         tag += 1
-        //lifeValue = UserDefaults.doooge().object(forKey: "growthPoint") as! Int
         
         //growthLabel.text = "\(lifeValue)"
         let width = UIScreen.main.bounds.width
@@ -227,17 +228,27 @@ class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerT
 
     
     @IBAction func play(_ sender: AnyObject) {
+        if AnimationEngine.shared.state == .sleeping {
+            endSleeping()
+        }
         animation.switchAnimation(.play)
 
     }
     
     @IBAction func eat(_ sender: AnyObject) {
+        if AnimationEngine.shared.state == .sleeping {
+            endSleeping()
+        }
         self.performSegue(withIdentifier: "showFood", sender: nil)
         //animation.switchAnimation(.eat)
         
     }
     
     @IBAction func sleep(_ sender: Any) {
+       
+        UIView.animate(withDuration: 0.5){
+            self.backImageView.image = UIImage(named: "night")
+        }
         animation.switchAnimation(.sleep)
     
     }
@@ -301,6 +312,7 @@ class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerT
         
         if segue.identifier == "showPlay" {
             let controller = segue.destination as! PlayViewController
+            controller.delegate = self
             controller.transitioningDelegate = self
         }
     }
@@ -323,6 +335,12 @@ class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerT
         
     }
     
+    func endSleeping() {
+        UIView.animate(withDuration: 0.5){
+            self.backImageView.image = UIImage(named: "background")
+        }
+        AnimationEngine.shared.defaultAnimation()
+    }
     
 }
 
@@ -330,12 +348,14 @@ extension TodayViewController: PresentViewControllerDelegate,AnimationEngineDele
     
     func dismiss() {
 
+        AnimationEngine.shared.delegate = self
+    }
+    
+    func didFinishPlaying() {
         
     }
     
-    func endFinishPlaying() {
-        
-    }
+
     
     func didChangeNotification(index: Int, id: Int) {
         
@@ -344,7 +364,11 @@ extension TodayViewController: PresentViewControllerDelegate,AnimationEngineDele
     
     }
     
-    
+    func didTouched() {
+        if AnimationEngine.shared.state == .sleeping {
+            endSleeping()
+        }
+    }
     
 
 }
