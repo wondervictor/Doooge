@@ -30,6 +30,7 @@
 		2979E54C4AFD27076576E82ADEED2F00 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B7DF9F307C1AE5B8C2A3F87CF9E78400 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D605A52CC0063DE26241CB3AA2145EB /* schema.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9353CECDB4C5041758797ABBF662D /* schema.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.0.3\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		2DE306459563719F4857A686ECDBC610 /* transact_log_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0EBAB5AB910A600F5EC39A2ACF2002 /* transact_log_handler.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.0.3\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
+		2E9A1C1E1DF46DD900A86860 /* librealm-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9A1C1D1DF46DD900A86860 /* librealm-ios.a */; };
 		2F7A0E2C42C397E05A8291153E544C75 /* RLMObjectStore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B6A2F5E9E40C0DE57DD9ED10EE74C20 /* RLMObjectStore.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.0.3\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		305E5DCA50D986665FE08932506EA33B /* RLMSyncCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = 2195BAA31654992D898B35D1F1893FCA /* RLMSyncCredential.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30677F52DF5C67FE95535E1A34125723 /* RLMObjectStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 28D1AFF5659BB59053C2CA31EBF607EA /* RLMObjectStore.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -213,6 +214,7 @@
 		2BE3A0713D1A2E85B8BB33B6C8772C43 /* RLMMigration_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMMigration_Private.h; path = include/RLMMigration_Private.h; sourceTree = "<group>"; };
 		2D0EBAB5AB910A600F5EC39A2ACF2002 /* transact_log_handler.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = transact_log_handler.cpp; path = Realm/ObjectStore/src/impl/transact_log_handler.cpp; sourceTree = "<group>"; };
 		2DC38BE08997EF7C3EBC25A0AC2177D6 /* sync_manager.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_manager.cpp; path = Realm/ObjectStore/src/sync_manager.cpp; sourceTree = "<group>"; };
+		2E9A1C1D1DF46DD900A86860 /* librealm-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "librealm-ios.a"; path = "core/librealm-ios.a"; sourceTree = "<group>"; };
 		2EB4DACB277865BC6E7815AA5BCA6BFD /* RLMUpdateChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMUpdateChecker.mm; path = Realm/RLMUpdateChecker.mm; sourceTree = "<group>"; };
 		33D9FE66F01AB6AE7152E54A1548EFA1 /* RLMCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMCollection.h; path = include/RLMCollection.h; sourceTree = "<group>"; };
 		34ACD0F7DC53640FD2BDDA35CC7D5BE7 /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
@@ -234,7 +236,6 @@
 		51C95AFA2D7653E8E2F5E13FC34D9DDC /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		534E8EBC89E0465C81585A86ED178B9B /* realm_coordinator.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = realm_coordinator.cpp; path = Realm/ObjectStore/src/impl/realm_coordinator.cpp; sourceTree = "<group>"; };
 		5507B4E85B491D287A996F5729D70A95 /* RLMAccessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMAccessor.h; path = include/RLMAccessor.h; sourceTree = "<group>"; };
-		5619552EA7A8DAE15ABD1ACAB7DAD172 /* librealm-ios.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "librealm-ios.a"; path = "core/librealm-ios.a"; sourceTree = "<group>"; };
 		59A534CC32802F4CAE945D1EABF6547D /* RLMSyncSession_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncSession_Private.h; path = include/RLMSyncSession_Private.h; sourceTree = "<group>"; };
 		5B86A713EAF773CFBF49DB30070949F1 /* list_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = list_notifier.cpp; path = Realm/ObjectStore/src/impl/list_notifier.cpp; sourceTree = "<group>"; };
 		5BD6A1249B0119A868E008ADE2EECB16 /* RLMArray_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMArray_Private.h; path = include/RLMArray_Private.h; sourceTree = "<group>"; };
@@ -372,6 +373,7 @@
 			files = (
 				DE31B168D9197213CEB7B90E3ADEB4CC /* Foundation.framework in Frameworks */,
 				AF4E7187E09A5AF3A0758991203153DC /* UIKit.framework in Frameworks */,
+				2E9A1C1E1DF46DD900A86860 /* librealm-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,7 +581,7 @@
 		CCB358F67F67B9E081B15D79FC9C6449 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5619552EA7A8DAE15ABD1ACAB7DAD172 /* librealm-ios.a */,
+				2E9A1C1D1DF46DD900A86860 /* librealm-ios.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1039,6 +1041,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Realm/core",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -1184,6 +1190,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Realm/core",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";

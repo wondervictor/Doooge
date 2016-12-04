@@ -28,6 +28,8 @@
 @property (nonatomic, strong) IBOutlet UIButton * habitDevelopButton;
 @property (nonatomic, strong) IBOutlet UIButton * dressUpButton;
 
+
+
 @end
 
 @implementation MainViewController

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,6 +55,7 @@
                                                 <state key="normal" backgroundImage="playBtn"/>
                                                 <connections>
                                                     <action selector="play:" destination="tay-7Z-Dka" eventType="touchUpInside" id="k52-vX-CKe"/>
+                                                    <segue destination="mOy-BA-ivm" kind="show" identifier="showPlay" id="u12-av-ElB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlP-b5-GMl">
@@ -333,6 +335,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backBtn" destination="5Rc-Bq-uWb" id="KOI-NW-M71"/>
                         <outlet property="backButton" destination="Ua8-E5-vmR" id="MTK-xB-aKG"/>
                         <outlet property="coinLabel" destination="z1h-xM-aci" id="0hb-Sn-3k8"/>
                         <outlet property="containerView" destination="4ru-V4-qcx" id="WNu-cI-gI1"/>
@@ -344,6 +347,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WG4-rq-XXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="473" y="-777"/>
+        </scene>
+        <!--Play View Controller-->
+        <scene sceneID="rnN-mM-cng">
+            <objects>
+                <viewController id="mOy-BA-ivm" customClass="PlayViewController" customModule="My_Doooge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ceo-Aa-dk2"/>
+                        <viewControllerLayoutGuide type="bottom" id="1SY-K7-c6R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c1n-MW-5zt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playground" translatesAutoresizingMaskIntoConstraints="NO" id="bb5-ES-Tgb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKd-Bk-VZi">
+                                <rect key="frame" x="26" y="159" width="39" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="F3K-i2-yJH"/>
+                                    <constraint firstAttribute="width" constant="39" id="YH5-ma-EVP"/>
+                                </constraints>
+                                <state key="normal" image="backMain"/>
+                                <connections>
+                                    <action selector="back:" destination="mOy-BA-ivm" eventType="touchUpInside" id="DqK-tB-7pd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1SY-K7-c6R" firstAttribute="top" secondItem="FKd-Bk-VZi" secondAttribute="bottom" constant="20" id="75U-AP-kaI"/>
+                            <constraint firstItem="FKd-Bk-VZi" firstAttribute="leading" secondItem="c1n-MW-5zt" secondAttribute="leadingMargin" constant="10" id="9iv-fe-tEN"/>
+                            <constraint firstItem="bb5-ES-Tgb" firstAttribute="leading" secondItem="c1n-MW-5zt" secondAttribute="leading" id="dfI-km-t9c"/>
+                            <constraint firstItem="bb5-ES-Tgb" firstAttribute="width" secondItem="c1n-MW-5zt" secondAttribute="width" id="l7t-mi-Sqc"/>
+                            <constraint firstItem="bb5-ES-Tgb" firstAttribute="centerY" secondItem="c1n-MW-5zt" secondAttribute="centerY" id="p3Q-Uy-pVh"/>
+                            <constraint firstItem="bb5-ES-Tgb" firstAttribute="height" secondItem="c1n-MW-5zt" secondAttribute="height" id="qNN-Sb-ryy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="FKd-Bk-VZi" id="hG5-1x-wcB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3v-4B-KIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="-489"/>
         </scene>
     </scenes>
     <resources>
@@ -358,6 +406,7 @@
         <image name="goBack" width="8" height="15"/>
         <image name="goFront" width="8" height="15"/>
         <image name="playBtn" width="68" height="40"/>
+        <image name="playground" width="187" height="100"/>
         <image name="sleepBtn" width="68" height="40"/>
     </resources>
 </document>

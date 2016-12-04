@@ -30,6 +30,9 @@
 		108C2F831DE0D05B002C4202 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 108C2F821DE0D05B002C4202 /* DatePickerView.m */; };
 		108C2F861DE115AF002C4202 /* HabitCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 108C2F851DE115AF002C4202 /* HabitCell2.m */; };
 		108C2F8B1DE1185D002C4202 /* AppTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 108C2F8A1DE1185D002C4202 /* AppTime.m */; };
+		2E06C7B81DF4080A00B390E9 /* DateMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E06C7B71DF4080A00B390E9 /* DateMaster.swift */; };
+		2E06C7BA1DF4205B00B390E9 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E06C7B91DF4205B00B390E9 /* PlayViewController.swift */; };
+		2E06C7BC1DF43BAB00B390E9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E06C7BB1DF43BAB00B390E9 /* DataManager.swift */; };
 		2E1829A21DC4D7030072722C /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1829A11DC4D7030072722C /* MessageView.swift */; };
 		2E1829E11DC5000E0072722C /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1829E01DC5000E0072722C /* Bubble.swift */; };
 		2E1CAC3F1DE9B7B30046F06C /* AnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CAC301DE9B7B20046F06C /* AnimationEngine.swift */; };
@@ -147,6 +150,9 @@
 		108C2F851DE115AF002C4202 /* HabitCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HabitCell2.m; path = Controller/HabitCell2.m; sourceTree = "<group>"; };
 		108C2F891DE1185D002C4202 /* AppTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppTime.h; sourceTree = "<group>"; };
 		108C2F8A1DE1185D002C4202 /* AppTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppTime.m; sourceTree = "<group>"; };
+		2E06C7B71DF4080A00B390E9 /* DateMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateMaster.swift; path = Model/DateMaster.swift; sourceTree = "<group>"; };
+		2E06C7B91DF4205B00B390E9 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayViewController.swift; path = Controllers/PlayViewController.swift; sourceTree = "<group>"; };
+		2E06C7BB1DF43BAB00B390E9 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Model/DataManager.swift; sourceTree = "<group>"; };
 		2E1829A11DC4D7030072722C /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		2E1829E01DC5000E0072722C /* Bubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
 		2E1CAC301DE9B7B20046F06C /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
@@ -488,6 +494,7 @@
 			children = (
 				2EA930AA1DC43B910065B905 /* TodayViewController.swift */,
 				2E1CAC4B1DE9BE630046F06C /* FoodViewController.swift */,
+				2E06C7B91DF4205B00B390E9 /* PlayViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -511,6 +518,8 @@
 				2E1CAC301DE9B7B20046F06C /* AnimationEngine.swift */,
 				2E1CAC371DE9B7B20046F06C /* NotificationManager.swift */,
 				2E1CAC381DE9B7B20046F06C /* ScoreManager.swift */,
+				2E06C7B71DF4080A00B390E9 /* DateMaster.swift */,
+				2E06C7BB1DF43BAB00B390E9 /* DataManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -913,6 +922,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E1CAC4A1DE9B7B30046F06C /* Transition.swift in Sources */,
+				2E06C7B81DF4080A00B390E9 /* DateMaster.swift in Sources */,
+				2E06C7BA1DF4205B00B390E9 /* PlayViewController.swift in Sources */,
+				2E06C7BC1DF43BAB00B390E9 /* DataManager.swift in Sources */,
 				2E959F6A1DEDB3AE00E92016 /* FoodCell.swift in Sources */,
 				2E1CAC4E1DE9BEA60046F06C /* ProgressBar.swift in Sources */,
 				2E1829A21DC4D7030072722C /* MessageView.swift in Sources */,

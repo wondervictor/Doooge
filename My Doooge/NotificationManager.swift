@@ -49,7 +49,9 @@ class NotificationManager {
         timer?.invalidate()
         randomNotification = content
         
+        
         self.messageView.appear((content.first?.content)!)
+        self.delegate?.didChangeNotification(index: 0,id: content[0].id)
         var interval: TimeInterval = 0
         timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { [unowned self](timer) in
             interval += 3

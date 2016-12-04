@@ -25,7 +25,8 @@ protocol PresentViewControllerDelegate {
 
 
 class FoodViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-
+    // 返回到主界面
+    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var coinLabel: UILabel!
     static let cellIdentifier = "FoodCell"
@@ -131,6 +132,7 @@ class FoodViewController: UIViewController,UICollectionViewDelegate,UICollection
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        backBtn.isEnabled = false
         containerView.isHidden = true
         let food = self.foodList[indexPath.row]
         print(food)
@@ -181,6 +183,7 @@ class FoodViewController: UIViewController,UICollectionViewDelegate,UICollection
 extension FoodViewController:AnimationEngineDelegate {
     @objc(didFinshEating)
     func didFinshEating(){
+        backBtn.isEnabled = true
         containerView.isHidden = false
     }
 }

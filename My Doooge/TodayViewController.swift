@@ -20,23 +20,6 @@ extension CGRect {
     }
 }
 
-extension UserDefaults {
-    private static let groupIdentifier = "group.com.vic.Doooge"
-    class func  doooge() -> UserDefaults {
-        let user = UserDefaults(suiteName: groupIdentifier)!
-        return user
-    }
-}
-
-
-
-extension DateFormatter {
-    private static let manager = DateFormatter()
-    public class func shared() -> DateFormatter {
-        return DateFormatter.manager
-    }
-    
-}
 
 
 enum MovementType: Int {
@@ -227,7 +210,7 @@ class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerT
         messageView = MessageView(frame: CGRect(width/2.0+30,60,97,22.5))
         self.view.window?.makeKeyAndVisible()
         notificationManager = NotificationManager(view: messageView)
-        
+        self.view.addSubview(messageView)
         
         self.notifications = [
             
@@ -236,6 +219,7 @@ class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerT
         NotificationModel("吃早饭",3,false),
         NotificationModel("吃夜宵",4,false),
         ]
+        notificationManager.delegate = self
         notificationManager.showRandom(content: notifications)
     }
     
@@ -314,6 +298,11 @@ class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerT
             controller.delegate = self
             controller.transitioningDelegate = self
         }
+        
+        if segue.identifier == "showPlay" {
+            let controller = segue.destination as! PlayViewController
+            controller.transitioningDelegate = self
+        }
     }
 
  
@@ -323,11 +312,21 @@ class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerT
         
         completionHandler(NCUpdateResult.newData)
     }
+    
 
+    
+    // 打卡
+    func punch(_ id: Int,name: String) {
+        // 打卡
+        let s = UserDefaults.doooge().object(forKey: name) as! Int
+        UserDefaults.doooge().set(s+1, forKey: name)
+        
+    }
+    
     
 }
 
-extension TodayViewController: PresentViewControllerDelegate,AnimationEngineDelegate {
+extension TodayViewController: PresentViewControllerDelegate,AnimationEngineDelegate,NotificationDelegate {
     
     func dismiss() {
 
@@ -337,5 +336,15 @@ extension TodayViewController: PresentViewControllerDelegate,AnimationEngineDele
     func endFinishPlaying() {
         
     }
+    
+    func didChangeNotification(index: Int, id: Int) {
+        
+    
+    
+    
+    }
+    
+    
+    
 
 }

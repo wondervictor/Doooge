@@ -91,6 +91,7 @@ class AnimationEngine: NSObject {
     
     
     @objc private func endEating() {
+        
         delegate?.didFinshEating!()
         defaultAnimation()
     }

@@ -65,6 +65,7 @@ static NSString * const kSleepKey = @"睡觉";
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     application.applicationIconBadgeNumber = 0;
+    
 }
 
 
