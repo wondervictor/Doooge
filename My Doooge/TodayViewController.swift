@@ -250,7 +250,9 @@ class TodayViewController: UIViewController, NCWidgetProviding,UIViewControllerT
             self.backImageView.image = UIImage(named: "night")
         }
         animation.switchAnimation(.sleep)
-    
+        
+        progressBar.update(200, level: 2)
+        
     }
     
     

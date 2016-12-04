@@ -49,8 +49,11 @@ class ProgressBar: UIView {
     
     
     
-    func update(_ value: Float) {
-        // progressLayer.frame = ()
+    func update(_ value: Float, level: Int) {
+        levelLabel.text = "Lv\(level)"
+        let ceiling = ScoreManager.manager.getCeiling(level)
+        progressLayer.frame = CGRect(1,1, CGFloat(value)*68/CGFloat(ceiling),7)
+
     }
     
     

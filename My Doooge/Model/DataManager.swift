@@ -82,7 +82,6 @@ struct DataManager {
         if let morning = getDailyRoutine(data: morning) {
             events.append(morning)
         }
-        
         if let lunch = getDailyRoutine(data: lunch) {
             events.append(lunch)
         }
@@ -113,8 +112,30 @@ struct DataManager {
     
     }
     
+    static func custom() -> [Event] {
+        var events = [Event]()
+        let manager = UserDefaults.doooge()
+        let dic = manager.object(forKey: "habits") as! [String: Any]
+        var i = 1000
+        for (key, value) in dic {
+            i += 1
+            let dict = value as! [String: Any]
+            let hour = dict["hour"] as? Int ?? 0
+            let miniute = dict["minute"] as? Int ?? 0
+            let persist = dict["persist"] as? Int ?? 0
+            let last = dict["last"] as! Date
+            let remind = dict["remind"] as! Bool
+            let week = dict["week"] as! Int
+        
+            let event = Event.init(id: i, name: key, hour: hour, min: miniute, persist: persist, last: last, week: week, remind: remind)
+            events.append(event)
+        }
+        return events
+    }
     
-    
-    
-    
+}
+
+extension NotificationManager {
+
+
 }
