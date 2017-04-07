@@ -21,7 +21,6 @@ extension CGRect {
 }
 
 
-
 enum MovementType: Int {
     case sleep1 = 0
     case sleep2 = 1
