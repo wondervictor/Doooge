@@ -24,7 +24,6 @@ struct NotificationModel {
 
 
 protocol NotificationDelegate {
-
     func didChangeNotification(index: Int,id: Int)
 }
 

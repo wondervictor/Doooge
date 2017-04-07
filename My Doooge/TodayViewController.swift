@@ -85,16 +85,38 @@ class Sound {
 
 
 
-/*
+
 class DateManager {
     
     private static let manager = DateManager()
     class func shared() -> DateManager {
         return DateManager.manager
     }
+    
+    func getWeek()->Int {
+        return 0;
+    }
+    
+    func getMonth()->Int {
+        return 0;
+    }
+    
+    func getDay()->Int {
+        return 0;
+    }
+    
+    func getDate()->(m: Int, d: Int) {
+        return (0,0)
+    }
+    
+    func getTime()->(hour: Int, min: Int) {
+        return (0,0)
+    }
+    
+    
+    
 }
 
-*/
 
 
 enum IncrementType: Int {
@@ -110,6 +132,7 @@ extension UIView {
     
 
 }
+
 
 
 

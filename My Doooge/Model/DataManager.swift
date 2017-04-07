@@ -55,7 +55,6 @@ struct Event {
 
 struct DataManager {
     
-    
     static func getGeneral() -> (growth: Int, gold: Int, level: Int) {
         let manager = UserDefaults.doooge()
         let growth = manager.object(forKey: "growthPoints") as? Int ?? 0
@@ -67,31 +66,29 @@ struct DataManager {
     static func life() -> [Event] {
         
         
-        
         var events = [Event]()
         let manager = UserDefaults.doooge()
 
-        
-        
+
         let morning = manager.object(forKey: "早饭") as? [String: Any]
         let lunch = manager.object(forKey: "午饭") as? [String: Any]
         let dinner = manager.object(forKey: "晚饭") as? [String: Any]
         let sport = manager.object(forKey: "运动") as? [String: Any]
         let sleep = manager.object(forKey: "睡觉") as? [String: Any]
         
-        if let morning = getDailyRoutine(data: morning) {
+        if let morning = getDailyRoutine(name: "早饭", id: 0,  data: morning) {
             events.append(morning)
         }
-        if let lunch = getDailyRoutine(data: lunch) {
+        if let lunch = getDailyRoutine(name: "午饭", id: 1, data: lunch) {
             events.append(lunch)
         }
-        if let dinner = getDailyRoutine(data: dinner) {
+        if let dinner = getDailyRoutine(name: "晚饭", id: 2, data: dinner) {
             events.append(dinner)
         }
-        if let sport = getDailyRoutine(data: sport) {
+        if let sport = getDailyRoutine(name: "运动", id: 3, data: sport) {
             events.append(sport)
         }
-        if let sleep = getDailyRoutine(data: sleep) {
+        if let sleep = getDailyRoutine(name: "睡觉", id: 4, data: sleep) {
             events.append(sleep)
         }
         
@@ -99,17 +96,16 @@ struct DataManager {
     
     }
     
-    static func getDailyRoutine(data: [String: Any]?) -> Event? {
+    static func getDailyRoutine(name: String, id: Int, data: [String: Any]?) -> Event? {
         if let data = data {
             let hour = data["hour"] as? Int ?? 0
             let miniute = data["minute"] as? Int ?? 0
             let persist = data["persist"] as? Int ?? 0
             let last = data["last"] as! Date
-            let event = Event.init(id: 0, name: "breakfast", hour: hour, min: miniute, persist: persist, last: last)
+            let event = Event.init(id: id, name: name, hour: hour, min: miniute, persist: persist, last: last)
             return event
         }
         return nil
-    
     }
     
     static func custom() -> [Event] {
